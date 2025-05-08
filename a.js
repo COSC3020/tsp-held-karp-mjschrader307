@@ -27,6 +27,14 @@ class Memo {
   }
 }
 
+function heldKarp(distance_matrix) {
+  let start = 0;
+  let memo = new Memo();
+  let visited = new Set([start]);
+
+  return HK(distance_matrix, visited, start, memo);
+}
+
 function HK(cities, visited, current, memo) {
   let key = memo.createKey(visited, current);
 
@@ -60,18 +68,4 @@ function HK(cities, visited, current, memo) {
 
   memo.add(key, min_cost_known);
   return min_cost_known;
-}
-
-function tsp_hk(distance_matrix) {
-  let n = distance_matrix.length;
-  const HK_results = [];
-
-  for (let start = 0; start < n; start++) {
-    let memo = new Memo();
-    let visited = new Set([start]);
-    let HK_result = HK(distance_matrix, visited, start, memo);
-    HK_results.push(HK_result);
-  }
-
-  return Math.min(...HK_results);
 }
