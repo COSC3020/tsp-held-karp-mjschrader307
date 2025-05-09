@@ -59,7 +59,7 @@ I think the reason that this algorithm isn't factorial, even though it basically
 
 ---
 
-I got a tip online for how to handle the resetting of the `visited` set. I couldn't figure out exactly where it made sense to do that.
+I got a tip online for how to handle the resetting of the `visited` set. I couldn't figure out exactly where it made sense to do that. The tip was to create a copy of `visted`, which I named `V`, and add the new city to it.
 
 **I certify that I have listed all sources used to complete this exercise, including the use
 of any Large Language Models. All of the work is my own, except where stated
