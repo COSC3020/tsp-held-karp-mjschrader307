@@ -57,9 +57,13 @@ I originally had my code start from the same city every time. With that consider
 
 I think the reason that this algorithm isn't factorial, even though it basically is checking all possible permutations of routes, is that the memoization makes checking preprocessed subroutes happen more quickly.
 
+### Memory Cost
+
+This algorithm, because of memoization, has significant memory costs. The memo stores results for every subroute, so that is already exponential ($2^n$). The algorithm is also tracking the possibilities as far as current cities for each subroute, which could get up to $n$. Therefore, the algorithm has a space complexity of $\Theta(2^n \cdot n)$
+
 ---
 
-I got a tip online for how to handle the resetting of the `visited` set. I couldn't figure out exactly where it made sense to do that. The tip was to create a copy of `visted`, which I named `V`, and add the new city to it.
+I got a tip online for how to handle the resetting of the `visited` set. I couldn't figure out exactly where it made sense to do that.
 
 **I certify that I have listed all sources used to complete this exercise, including the use
 of any Large Language Models. All of the work is my own, except where stated
