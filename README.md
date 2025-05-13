@@ -46,3 +46,26 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+---
+
+Answer:
+
+As I understand it, this algorithm needs to process every subset out of the set of cities. This makes the set of cities a powerset, and I recall from Discrete Structures that the cardinality of a powerset is $2^n$. That makes this algorithm run in at least exponential time.
+
+I originally had my code start from the same city every time. With that considered, with the for-loop in the main function body iterating through all unvisited nodes at each recursive call, I would think that would make the original implementation run in $O(2^n \cdot n)$ time. However, I noticed it wasn't working with the test cases, so I made it so that the starting position changes through all the nodes. That makes this whole process run another $n$ times, so that bumps the runtime up to $O(2^n \cdot n^2)$.
+
+I think the reason that this algorithm isn't factorial, even though it basically is checking all possible permutations of routes, is that the memoization makes checking preprocessed subroutes happen more quickly.
+
+### Memory Cost
+
+This algorithm, because of memoization, has significant memory costs. The memo stores results for every subroute, so that is already exponential ($2^n$). The algorithm is also tracking the possibilities as far as current cities for each subroute, which could get up to $n$. Therefore, the algorithm has a space complexity of $\Theta(2^n \cdot n)$
+
+---
+
+I got a tip online for how to handle the resetting of the `visited` set. I couldn't figure out exactly where it made sense to do that.
+
+**I certify that I have listed all sources used to complete this exercise, including the use
+of any Large Language Models. All of the work is my own, except where stated
+otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is
+suspected, charges may be filed against me without prior notice.**
