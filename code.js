@@ -7,7 +7,8 @@ class Memo {
 
   // Key format: "visited_cities, current_cities"
   createKey(visited_cities, current_city) {
-    return `${[...visited_cities]},${current_city}`;
+    const v = [...visited_cities].sort();
+    return `${v},${current_city}`;
   }
 
   get(key) {
